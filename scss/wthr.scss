@@ -6,22 +6,38 @@
 	padding: 0;
 }
 
-/**
- * Heading
- *************************/
+/* Table and row wrappers for structuring */
+.wthr-table {
+	display: table;
+	width: 100%;
+}
+.wthr-row {
+	display: table-row;
+}
+
 
 /**
- * Now
+ * Container
  *************************/
 
-.wthr-now {
+.wthr-container {
+	display: table;
+}
+
+
+/**
+ * Current
+ *************************/
+
+.wthr-current {
 	display: table-cell;
-	padding: 5px 10px 10px 10px;
+	padding: 10px 10px 10px 10px;
+	background-color: #ddd;
 	
 	h4 {
 		text-align: center;
-		font-size: 1.2em;	
-		padding-bottom: 5px;
+		font-size: 1.25em;	
+		padding-bottom: 10px;
 		
 		.wthr-current-time {
 			font-weight: default;
@@ -37,6 +53,7 @@
 
 	.wthr-climate {
 		text-align: center;
+		padding: 10px 0 5px 8%;
 	}
 
 	.wthr-icon,
@@ -46,11 +63,91 @@
 
 	.wthr-details {
 		list-style: none;
+		font-size: 1.05em;
 		
 		label {
 			display: inline-block;
 			text-align: center;
-			min-width: 1em;
+			min-width: 1.2em;
+		}
+	}
+}
+
+
+/**
+ * Daily Thumbnails
+ *************************/
+
+.wthr-daily {
+	display: table-cell;
+	background-color: #FDD; 
+}
+
+.wthr-day-thumb {
+	display: table-cell;
+	text-align: center;
+	padding: 5px 8px;
+	border-right: 1px solid black;
+	
+	.wthr-date,
+	.wthr-icon {
+		display: block;
+		margin-bottom: 3px;
+	}
+
+	.wthr-icon {
+		font-size: 1.4em;
+	}
+
+	.wthr-min {
+		color: blue;
+	}
+
+	.wthr-max {
+		color: red;
+	}
+}
+
+
+/**
+ * Daily Details
+ *************************/
+
+.wthr-daily-details {
+	display: table-cell;
+	background-color: #DDF;
+	font-size: 0.9em;
+	
+	.wthr-details-header {
+		text-align: center;
+		padding: 10px 0;
+		
+		h5 {
+			font-size: 1.1em;
+		}
+	}
+	
+	li {
+		padding: 3px 10px;
+		list-style: none;
+		
+		label {
+			display: inline-block;
+			padding-right: 5px;
+			text-align: left;
+			width: 50%;
+		}
+
+		span {
+			padding-left: 5px;
+		}
+
+		&.wthr-last {
+			padding-bottom: 5px;
+		}
+
+		&:nth-child(odd) {
+			background-color: #ddd; 
 		}
 	}
 }
