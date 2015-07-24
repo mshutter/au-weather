@@ -1,0 +1,56 @@
+/* Simple reset */
+*[class^='wthr-'],
+*[class^='wthr-'] > * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Heading
+ *************************/
+
+/**
+ * Now
+ *************************/
+
+.wthr-now {
+	display: table-cell;
+	padding: 5px 10px 10px 10px;
+	
+	h4 {
+		text-align: center;
+		font-size: 1.2em;	
+		padding-bottom: 5px;
+		
+		.wthr-current-time {
+			font-weight: default;
+		}
+	}
+
+	.wthr-climate,
+	.wthr-details {
+		display: inline-block;
+		vertical-align: middle;
+		padding-top: 5px;
+	}
+
+	.wthr-climate {
+		text-align: center;
+	}
+
+	.wthr-icon,
+	.wthr-temperature {
+		font-size: 42px;
+	}
+
+	.wthr-details {
+		list-style: none;
+		
+		label {
+			display: inline-block;
+			text-align: center;
+			min-width: 1em;
+		}
+	}
+}
