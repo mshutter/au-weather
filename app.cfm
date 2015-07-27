@@ -1,6 +1,8 @@
 <!---
 	<link rel="stylesheet" href="./css/weather-icons.min.css">
+	<script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
 --->
+
 <style>
 	.AAA,
 	.AAA-only {
@@ -143,7 +145,7 @@
 		<div class="wthr-table">
 		<cfloop from='1' to='6' index='i'>
 
-			<div class='wthr-day-thumb' id='wthr-day-thumb-#i#'>
+			<div class='wthr-day-thumb' id='wthr-day-thumb-#i#' onclick='showWeatherDetails(#i#)'>
 				<span class='wthr-date'>
 					#DateFormat(
 						EpochTimeToDate( daily[i].time ),
@@ -181,11 +183,11 @@
 	--->
 
 	<div class="wthr-row">
-	<cfloop from='1' to='1' index='i'>
-		<div class="wthr-daily-details" id='wthr-details-#i#'>
-		<cfoutput>
+	<cfoutput>
+	<cfloop from='1' to='6' index='i'>
+		<div class="wthr-daily-details" id='wthr-details-#i#' style='display:none;'>
+		<div class="wthr-slide-handle" style='display:none;'>
 		
-
 			<div class='wthr-details-header'>
 				<h5>
 					#DateFormat(
@@ -247,12 +249,43 @@
 				</li>
 			</ul> <!-- .wthr-data -->
 
-		</cfoutput>
+		</div> <!-- .wthr-slide-handle -->
 		</div> <!-- .wthr-daily-details -->
 	</cfloop>
+	</cfoutput>
 	</div> <!-- .wthr-row -->
 
 </div> <!-- .wthr-container -->
 
+<script>
+	function showWeatherDetails (id) {
+
+		if ( $('#wthr-day-thumb-'+id).attr('data-selected') ) {      /* If selected thumb is clicked */
+			$('.wthr-slide-handle').slideUp({   // slide details pane up,
+					duration: 200,
+					complete: function () {
+						$('.wthr-daily-details, .wthr-slide-handle').hide(); // hide all details element,
+					}
+				});
+			$('.wthr-day-thumb').removeAttr('data-selected');          // and 'deselect' all thumbnails.
+
+
+		} else if ( $('.wthr-day-thumb[data-selected]').length ) {   /* If thumb is clicked (details shown): */
+			$('.wthr-daily-details').hide();                           // hide all details elements,
+			$('.wthr-day-thumb').removeAttr('data-selected');          // deselect all thumbnails,
+
+			$('#wthr-day-thumb-'+id).attr('data-selected', 'true');    // select current thumbnail,
+			$('#wthr-details-'+id).show();                             // and show current details element.
+
+
+		} else {                                                     /* If thumb is clicked (details hidden): */
+			$('#wthr-day-thumb-'+id).attr('data-selected', 'true');    // select current thumbnail,
+			$('#wthr-details-'+id).show();                             // show current details element,
+			$('.wthr-slide-handle').slideDown({ duration: 200 });      // and slide details pane in.
+		}
+
+		return false;
+	}
+</script>
 
 <cfdump var='#APPLICATION.weatherData#' />

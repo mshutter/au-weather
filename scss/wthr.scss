@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 /* Simple reset */
 *[class^='wthr-'],
 *[class^='wthr-'] > * {
@@ -21,7 +23,15 @@
  *************************/
 
 .wthr-container {
-	display: table;
+	display: table; 
+	border: 1px solid black;
+	font-family:'Open Sans', sans-serif;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #DDD; 
 }
 
 
@@ -32,7 +42,6 @@
 .wthr-current {
 	display: table-cell;
 	padding: 10px 10px 10px 10px;
-	background-color: #ddd;
 	
 	h4 {
 		text-align: center;
@@ -56,9 +65,20 @@
 		padding: 10px 0 5px 8%;
 	}
 
+	.wthr-summary {
+		display: inline-block;
+		padding-bottom: 5px;
+	}
+
 	.wthr-icon,
 	.wthr-temperature {
+		display: inline-block;
 		font-size: 42px;
+	}
+
+	.wthr-feels-like {
+		display: inline-block;
+		padding-top: 5px;
 	}
 
 	.wthr-details {
@@ -80,19 +100,42 @@
 
 .wthr-daily {
 	display: table-cell;
-	background-color: #FDD; 
+
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .wthr-day-thumb {
 	display: table-cell;
 	text-align: center;
 	padding: 5px 8px;
-	border-right: 1px solid black;
+	border-right: 1px solid #DDD;
+	cursor: pointer;
+	
+	&:last-child {
+		border-right: none;
+	}
+
+	&:hover,
+	&[data-selected] {
+		background-color: #EEE;
+		background-image: linear-gradient(white, #EEE);
+	}
 	
 	.wthr-date,
 	.wthr-icon {
 		display: block;
 		margin-bottom: 3px;
+	}
+	
+	.wthr-icon,
+	.wthr-min,
+	.wthr-max {
+		font-weight: 700;
 	}
 
 	.wthr-icon {
@@ -100,11 +143,11 @@
 	}
 
 	.wthr-min {
-		color: blue;
+		color: #0074D9;
 	}
 
 	.wthr-max {
-		color: red;
+		color: #FF4136;
 	}
 }
 
@@ -115,15 +158,20 @@
 
 .wthr-daily-details {
 	display: table-cell;
-	background-color: #DDF;
 	font-size: 0.9em;
 	
 	.wthr-details-header {
 		text-align: center;
+		background-color: #EEE; 
 		padding: 10px 0;
 		
 		h5 {
 			font-size: 1.1em;
+		}
+
+		.wthr-summary {
+			display: inline-block;
+			max-width: 250px;
 		}
 	}
 	
@@ -146,8 +194,8 @@
 			padding-bottom: 5px;
 		}
 
-		&:nth-child(odd) {
-			background-color: #ddd; 
+		&:nth-child(even) {
+			background-color: #EEE; 
 		}
 	}
 }
