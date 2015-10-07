@@ -1,18 +1,23 @@
+@charset "UTF-8";
+/* Import Open Sans font from google fonts API */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 /* Simple reset */
 *[class^='wthr-'],
 *[class^='wthr-'] > * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
-/* Table and row wrappers for structuring */
+/* Table and row wrappers for structuring via HTML */
 .wthr-table {
   display: table;
-  width: 100%; }
+  width: 100%;
+}
 
 .wthr-row {
-  display: table-row; }
+  display: table-row;
+}
 
 /**
  * Container
@@ -20,50 +25,62 @@
 .wthr-container {
   display: table;
   border: 1px solid black;
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+}
 
 hr {
   border: 0;
   height: 1px;
-  background-color: #DDD; }
+  background-color: #DDD;
+}
 
 /**
  * Current
  *************************/
 .wthr-current {
   display: table-cell;
-  padding: 10px 10px 10px 10px; }
-  .wthr-current h4 {
-    text-align: center;
-    font-size: 1.25em;
-    padding-bottom: 10px; }
-    .wthr-current h4 .wthr-current-time {
-      font-weight: default; }
-  .wthr-current .wthr-climate,
-  .wthr-current .wthr-details {
-    display: inline-block;
-    vertical-align: middle;
-    padding-top: 5px; }
-  .wthr-current .wthr-climate {
-    text-align: center;
-    padding: 10px 0 5px 8%; }
-  .wthr-current .wthr-summary {
-    display: inline-block;
-    padding-bottom: 5px; }
-  .wthr-current .wthr-icon,
-  .wthr-current .wthr-temperature {
-    display: inline-block;
-    font-size: 42px; }
-  .wthr-current .wthr-feels-like {
-    display: inline-block;
-    padding-top: 5px; }
-  .wthr-current .wthr-details {
-    list-style: none;
-    font-size: 1.05em; }
-    .wthr-current .wthr-details label {
-      display: inline-block;
-      text-align: center;
-      min-width: 1.2em; }
+  padding: 10px 10px 10px 10px;
+}
+.wthr-current h4 {
+  text-align: center;
+  font-size: 1.25em;
+  padding-bottom: 10px;
+}
+.wthr-current h4 .wthr-current-time {
+  font-weight: default;
+}
+.wthr-current .wthr-climate,
+.wthr-current .wthr-details {
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 5px;
+}
+.wthr-current .wthr-climate {
+  text-align: center;
+  padding: 10px 0 5px 8%;
+}
+.wthr-current .wthr-summary {
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.wthr-current .wthr-icon,
+.wthr-current .wthr-temperature {
+  display: inline-block;
+  font-size: 42px;
+}
+.wthr-current .wthr-feels-like {
+  display: inline-block;
+  padding-top: 5px;
+}
+.wthr-current .wthr-details {
+  list-style: none;
+  font-size: 1.05em;
+}
+.wthr-current .wthr-details label {
+  display: inline-block;
+  text-align: center;
+  min-width: 1.2em;
+}
 
 /**
  * Daily Thumbnails
@@ -75,62 +92,80 @@ hr {
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 .wthr-day-thumb {
   display: table-cell;
   text-align: center;
   padding: 5px 8px;
   border-right: 1px solid #DDD;
-  cursor: pointer; }
-  .wthr-day-thumb:last-child {
-    border-right: none; }
-  .wthr-day-thumb:hover, .wthr-day-thumb[data-selected] {
-    background-color: #EEE;
-    background-image: linear-gradient(white, #EEE); }
-  .wthr-day-thumb .wthr-date,
-  .wthr-day-thumb .wthr-icon {
-    display: block;
-    margin-bottom: 3px; }
-  .wthr-day-thumb .wthr-icon,
-  .wthr-day-thumb .wthr-min,
-  .wthr-day-thumb .wthr-max {
-    font-weight: 700; }
-  .wthr-day-thumb .wthr-icon {
-    font-size: 1.4em; }
-  .wthr-day-thumb .wthr-min {
-    color: #0074D9; }
-  .wthr-day-thumb .wthr-max {
-    color: #FF4136; }
+  cursor: pointer;
+}
+.wthr-day-thumb:last-child {
+  border-right: none;
+}
+.wthr-day-thumb:hover, .wthr-day-thumb[data-selected] {
+  background-color: #EEE;
+  background-image: linear-gradient(white, #EEE);
+}
+.wthr-day-thumb .wthr-date,
+.wthr-day-thumb .wthr-icon {
+  display: block;
+  margin-bottom: 3px;
+}
+.wthr-day-thumb .wthr-icon,
+.wthr-day-thumb .wthr-min,
+.wthr-day-thumb .wthr-max {
+  font-weight: 700;
+}
+.wthr-day-thumb .wthr-icon {
+  font-size: 1.4em;
+}
+.wthr-day-thumb .wthr-min {
+  color: #0074D9;
+}
+.wthr-day-thumb .wthr-max {
+  color: #FF4136;
+}
 
 /**
  * Daily Details
  *************************/
 .wthr-daily-details {
   display: table-cell;
-  font-size: 0.9em; }
-  .wthr-daily-details .wthr-details-header {
-    text-align: center;
-    background-color: #EEE;
-    padding: 10px 0; }
-    .wthr-daily-details .wthr-details-header h5 {
-      font-size: 1.1em; }
-    .wthr-daily-details .wthr-details-header .wthr-summary {
-      display: inline-block;
-      max-width: 250px; }
-  .wthr-daily-details li {
-    padding: 3px 10px;
-    list-style: none; }
-    .wthr-daily-details li label {
-      display: inline-block;
-      padding-right: 5px;
-      text-align: left;
-      width: 50%; }
-    .wthr-daily-details li span {
-      padding-left: 5px; }
-    .wthr-daily-details li.wthr-last {
-      padding-bottom: 5px; }
-    .wthr-daily-details li:nth-child(even) {
-      background-color: #EEE; }
+  font-size: 0.9em;
+}
+.wthr-daily-details .wthr-details-header {
+  text-align: center;
+  background-color: #EEE;
+  padding: 10px 0;
+}
+.wthr-daily-details .wthr-details-header h5 {
+  font-size: 1.1em;
+}
+.wthr-daily-details .wthr-details-header .wthr-summary {
+  display: inline-block;
+  max-width: 250px;
+}
+.wthr-daily-details li {
+  padding: 3px 10px;
+  list-style: none;
+}
+.wthr-daily-details li label {
+  display: inline-block;
+  padding-right: 5px;
+  text-align: left;
+  width: 50%;
+}
+.wthr-daily-details li span {
+  padding-left: 5px;
+}
+.wthr-daily-details li.wthr-last {
+  padding-bottom: 5px;
+}
+.wthr-daily-details li:nth-child(even) {
+  background-color: #EEE;
+}
 
 /*# sourceMappingURL=wthr.css.map */

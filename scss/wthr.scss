@@ -1,4 +1,6 @@
+/* Import Open Sans font from google fonts API */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 
 /* Simple reset */
 *[class^='wthr-'],
@@ -8,7 +10,8 @@
 	padding: 0;
 }
 
-/* Table and row wrappers for structuring */
+
+/* Table and row wrappers for structuring via HTML */
 .wthr-table {
 	display: table;
 	width: 100%;
